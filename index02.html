@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>”g‚ÌƒAƒjƒ[ƒVƒ‡ƒ“</title>
+<title>æ³¢ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³</title>
  
 <style>
 *{ margin: 0px; padding: 0px; }
@@ -13,7 +13,6 @@
 <body>
  
 <canvas  id="canvas" width="600" height="500">
-ƒuƒ‰ƒEƒU‚ª‘Î‰‚µ‚Ä‚¨‚è‚Ü‚¹‚ñB
 </canvas>
  
 <script>
@@ -21,14 +20,14 @@
 window.addEventListener('load', draw, false);
  
 function draw(){
-    var r = 100; //U•
-    var T  = 600; // üŠú
-    var degree = 0; //Šp“x
+    var r = 100; //æŒ¯å¹…
+    var T  = 600; // å‘¨æœŸ
+    var degree = 0; //è§’åº¦
         
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
         
-    function loop() { //ŒJ‚è•Ô‚³‚ê‚éŠÖ”
+    function loop() { //ç¹°ã‚Šè¿”ã•ã‚Œã‚‹é–¢æ•°
     
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.beginPath();
@@ -41,12 +40,12 @@ function draw(){
         
         ctx.fillStyle = 'green';
         ctx.globalAlpha = 0.5;
-        ctx.lineTo(canvas.width, canvas.height); //ƒpƒX‚ğcanvas‚Ì‰E‰º‚Ü‚Å
-        ctx.lineTo(0, canvas.height); //ƒpƒX‚ğcanvas‚Ì¶‰º‚Ü‚Å
-        ctx.closePath() //ƒpƒX‚ğ•Â‚¶‚é
-        ctx.fill(); //“h‚è‚Â‚Ô‚·
+        ctx.lineTo(canvas.width, canvas.height); //ãƒ‘ã‚¹ã‚’canvasã®å³ä¸‹ã¾ã§
+        ctx.lineTo(0, canvas.height); //ãƒ‘ã‚¹ã‚’canvasã®å·¦ä¸‹ã¾ã§
+        ctx.closePath() //ãƒ‘ã‚¹ã‚’é–‰ã˜ã‚‹
+        ctx.fill(); //å¡—ã‚Šã¤ã¶ã™
  
-        degree += 3; //3“x‚Ã‚Â‘‚â‚µ‚Ä‚¢‚­
+        degree += 3; //3åº¦ã¥ã¤å¢—ã‚„ã—ã¦ã„ã
     
         requestAnimationFrame(loop);
     }
@@ -54,7 +53,7 @@ function draw(){
     loop();
  
     function drawWave(degree) {
-        ctx.moveTo(0, -r*Math.sin((2*Math.PI/T)*degree)+(canvas.height/2)); //n“_
+        ctx.moveTo(0, -r*Math.sin((2*Math.PI/T)*degree)+(canvas.height/2)); //å§‹ç‚¹
         for (var x=1; x <= canvas.width; x+= 1) {
             var y =-r*Math.sin((2*Math.PI/T)*(degree+x));
             ctx.lineTo(x, y+(canvas.height/2));
