@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>隕石のアニメーション</title>
+    <style>
+canvas {
+	background: url(./img/transparent.png);
+	border: solid 1px #488;
+}
+    </style>
+  </head>
+  <body>
+    <canvas width="800" height="600" id="canvas"></canvas>
+    <script>
+	const canvas  = document.querySelector('#canvas');
+	const context = canvas.getContext('2d');
+	const w = canvas.width;
+	const h = canvas.height;
+	const size = 60;
+	let x = 0
+	let y = 0;
+
+	// 設定値
+	context.fillStyle   = '#gaa';
+	context.strokeStyle = '#14f';
+	context.lineWidth   = 12;
+
+	let tmOld = 1;
+
+	// アニメーション用関数
+	const step = function(tm) {
+		let tmDif = tm - tmOld;
+		if (tmDif > 1000) { tmDif = 0 }
+		tmOld = tm;
+
+		x += tmDif / 8;
+		y += tmDif / 16;
+		if (x >= w + size) {x = -size}
+		if (y >= h + size) {y = -size}
+
+		context.clearRect(0, 0, w, h);
+
+		context.beginPath();
+		context.arc(x, y, size, 0, 2 * Math.PI);
+		context.fill();
+		context.stroke();
+
+		requestAnimationFrame(step);
+	};
+
+	// アニメーションの実行
+	requestAnimationFrame(step);
+
+    </script>
+  </body>
+</html>
